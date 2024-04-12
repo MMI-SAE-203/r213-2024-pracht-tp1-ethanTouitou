@@ -1,12 +1,5 @@
 <script setup lang="ts">
-import { onErrorCaptured, ref } from 'vue'
-import { RouterLink, RouterView } from 'vue-router/auto'
-
-onErrorCaptured((err, instance, info) => {
-  console.error('erreur : ', err, '\ninfo : ', info, '\ncomposant : ', instance)
-  return true
-})
-
+import { ref } from 'vue'
 const menuIsOpen = ref(false)
 </script>
 
@@ -29,9 +22,9 @@ const menuIsOpen = ref(false)
       <!-- nav#mainNav>ul>li*3>a[href="#"]{item $} -->
       <nav id="mainNav" v-show="menuIsOpen">
         <ul>
-          <li><a href="#">item 1</a></li>
-          <li><a href="#">item 2</a></li>
-          <li><a href="#">item 3</a></li>
+          <li><RouterLink to="/">accueil</RouterLink></li>
+          <li><RouterLink to="/accordeon">accordeon</RouterLink></li>
+          <li><RouterLink to="/boucle">boucle</RouterLink></li>
         </ul>
       </nav>
     </Transition>
