@@ -32,8 +32,8 @@ const sectionOpen = ref(0)
 </script>
 <template>
   <section v-for="({ label, texte }, key) of sectionsData" :key="key">
-    <pre class="font-mono">key : {{ key }}</pre>
-    <pre class="font-mono">label : {{ label }}</pre>
-    <pre class="font-mono">texte : {{ texte }}</pre>
+    <pre>key : {{ key }}</pre>
+    <pre @pointerdown="sectionOpen = key + 1">label : {{ label }}</pre>
+    <pre v-show="sectionOpen == key + 1">texte : {{ texte }}</pre>
   </section>
 </template>
